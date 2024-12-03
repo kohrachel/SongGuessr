@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import AudioPlayer from "./components/AudioPlayer";
+import AudioPlayer from "../components/AudioPlayer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image"; // Import the Image component
@@ -8,9 +8,9 @@ import confetti from "canvas-confetti";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const song = "Daylight"; // Replace with the actual correct answer
+  const song = "The Best Day"; // Replace with the actual correct answer
   const artist = "Taylor Swift"; // Replace with the actual correct answer
-  const image = "/assets/TaylorSwift_Daylight.jpeg"; // Replace with image path
+  const image = "/assets/TaylorSwift_TheBestDay.jpeg"; // Replace with image path
   const [userGuess, setUserGuess] = useState(""); // State to hold the user's guess
   const [isCorrect, setIsCorrect] = useState(false); // State to hold correctness of user's guess
   const [message, setMessage] = useState<string | null>(null);
@@ -173,8 +173,8 @@ export default function Home() {
             <Button type="submit">Guess</Button>
           </form>
         </div>
-        <div className="flex justify-end w-full mt-4">
-          {/* <Button onClick={() => router.push("/")}>Previous</Button> */}
+        <div className="flex justify-between w-full mt-4">
+          <Button onClick={() => router.push("/")}>Previous</Button>
           <Button onClick={() => router.push("/second")}>Next</Button>
         </div>
       </main>

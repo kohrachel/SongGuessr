@@ -3,23 +3,25 @@ import React, { useEffect, useRef } from "react";
 
 interface AudioPlayerProps {
   audioSrc: string;
+  autoPlay?: boolean;
 }
 
-function AudioPlayer({ audioSrc }: AudioPlayerProps) {
+function AudioPlayer({ audioSrc, autoPlay = false }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // // Play audio on component mount
-    // audio?.play();
+    if (autoPlay) {
+      audio?.play();
+    }
 
     return () => {
       // Cleanup on unmount
       audio.pause();
     };
-  }, []);
+  }, [autoPlay]);
 
   return (
     <div>
