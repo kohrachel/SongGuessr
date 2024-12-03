@@ -1,7 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 
-function AudioPlayer() {
+interface AudioPlayerProps {
+  audioSrc: string;
+}
+
+function AudioPlayer({ audioSrc }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -24,7 +28,7 @@ function AudioPlayer() {
         controls
         style={{ margin: "0 auto", display: "block" }}
       >
-        <source src="/audio/clip1.mp3" type="audio/mpeg" />
+        <source src={audioSrc} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </div>
